@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *,
+    *:before,
+    *:after {
+      box-sizing: inherit;
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      box-sizing: border-box;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    .talkso-embed {
+      position: relative;
+    }
+    .talkso-embed-iframe {
+      position: relative;
+      width: 100%;
+      padding-bottom: 62.5%;
+    }
+    .talkso-embed-iframe iframe {
+      border: 0;
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+    .talkso-embed-iframe:hover .talkso-embed-title {
+      opacity: 1;
+    }
+    .talkso-embed-title {
+      background: linear-gradient(to top, black, rgba(0,0,0,0.8));
+      color: white;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transition: 0.4s ease-out;
+      z-index: 10;
+    }
+    .talkso-embed-controls {
+      background: black;
+      position: relative;
+      text-align: center;
+    }
+    .talkso-embed-controls button {
+      appearance: none;
+      background: transparent;
+      border: 0;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+      font-size: 20px;
+      width: 32px;
+      height: 32px;
+      margin: 5px 5px 5px;
+      outline: 0;
+      transition: 0.3s ease-out;
+    }
+    .talkso-embed-controls button:hover {
+      background: white;
+      color: black;
+    }
+    .talkso-embed-link,
+    .talkso-embed-position {
+      color: white;
+      font-size: 14px;
+      line-height: 32px;
+      padding: 0 5px;
+      position: absolute;
+      top: 5px;
+      text-decoration: none;
+      transition: 0.3s ease-out;
+    }
+    .talkso-embed-link {
+      border-radius: 5px;
+      left: 5px;
+    }
+    .talkso-embed-link:hover {
+      background: white;
+      color: black;
+    }
+    .talkso-embed-position {
+      right: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="talkso-embed">
+    <div class="talkso-embed-iframe">
+      <iframe src="demo.html" frameborder="0" tabIndex="-1"></iframe>
+      <div class="talkso-embed-title">
+        <span></span>
+      </div>
+    </div>
+    <div class="talkso-embed-controls">
+      <a class="talkso-embed-link" href="demo.html" target="_blank">open</a>
+      <button class="talkso-embed-prev">❮</button><button class="talkso-embed-next">❯</button>
+      <div class="talkso-embed-position"></div>
+    </div>
+  </div>
+  <script>
+    const iframe = document.querySelector('iframe');
+    const prev = document.querySelector('.talkso-embed-prev');
+    const next = document.querySelector('.talkso-embed-next');
+    const link = document.querySelector('.talkso-embed-link');
+    const title = document.querySelector('.talkso-embed-title span');
+    const position = document.querySelector('.talkso-embed-position');
+    let win = iframe.contentWindow;
+    let length = 0;
+    let url;
+
+    if (location.hash) {
+      url = location.hash.substr(1);
+      link.href = url;
+      iframe.src = url;
+    }
+
+    prev.addEventListener('click', e => {
+      win.postMessage({prev: '', position: ''}, '*');
+    });
+    next.addEventListener('click', e => {
+      win.postMessage({next: '', position: ''}, '*');
+    });
+    iframe.addEventListener('load', e => {
+      win = iframe.contentWindow;
+      win.postMessage({length: '', position: '', title: ''}, '*');
+    });
+    window.addEventListener('message', e => {
+      const source = e.source;
+      const data = e.data;
+      if (data.length) {
+        length = data.length;
+      }
+      if (data.position) {
+        const [slide, step] = data.position.split('.');
+        position.textContent = `${slide}/${length}`;
+      }
+      if (data.title) {
+        document.title = data.title;
+        title.textContent = data.title;
+      }
+    });
+  </script>
+</body>
+</html>
