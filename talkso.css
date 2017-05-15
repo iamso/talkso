@@ -32,11 +32,11 @@
 }
 
 html {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   overflow: hidden;
   box-sizing: border-box;
   height: 100%;
   background: #000;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   -webkit-font-kerning: auto;
   -moz-font-kerning: auto;
   font-kerning: auto;
@@ -61,10 +61,6 @@ html {
 }
 
 html:not(.loaded):after {
-  font-family: 'headings';
-  font-size: 5vmin;
-  font-weight: 800;
-  line-height: 1.1;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -75,6 +71,10 @@ html:not(.loaded):after {
   animation: loading 1.5s linear infinite;
   letter-spacing: -0.02em;
   color: #fff;
+  font-family: 'headings';
+  font-size: 5vmin;
+  font-weight: 800;
+  line-height: 1.1;
 }
 
 @keyframes loading {
@@ -97,11 +97,11 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  margin: -450px 0 0 -720px;
   display: block;
   overflow: hidden;
   width: 1440px;
   height: 900px;
+  margin: -450px 0 0 -720px;
   counter-reset: slide-nr;
   transition: opacity 0.3s ease-out;
   opacity: 0;
@@ -114,9 +114,6 @@ body {
 
 header,
 footer {
-  font-size: 24px;
-  font-weight: 200;
-  line-height: 1;
   position: absolute;
   z-index: 100;
   right: 0;
@@ -125,6 +122,9 @@ footer {
   text-align: center;
   opacity: 0.4;
   color: #333;
+  font-size: 24px;
+  font-weight: 200;
+  line-height: 1;
 }
 
 header {
@@ -157,9 +157,6 @@ footer {
  */
 
 section {
-  font-size: 40px;
-  font-weight: 200;
-  line-height: 1.6;
   position: absolute;
   z-index: 10;
   top: 0;
@@ -174,6 +171,9 @@ section {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
+  font-size: 40px;
+  font-weight: 200;
+  line-height: 1.6;
   flex-wrap: nowrap;
   justify-content: flex-start;
   align-content: flex-start;
@@ -194,27 +194,22 @@ section {
     visibility: visible;
     pointer-events: all;
   }
-
   section.fade-in,
   section.blur-in {
     transition: 0.6s ease-out;
-    transition-property: all, visibility;
     transition-duration: 0.4s, 0s;
+    transition-property: all, visibility;
   }
-
   html:not(.overview) section.fade-in {
     opacity: 0;
   }
-
   html:not(.overview) section.blur-in {
     -webkit-filter: blur(100px);
     filter: blur(100px);
   }
-
   .loaded section.active.fade-in {
     opacity: 1;
   }
-
   .loaded section.active.blur-in {
     -webkit-filter: none;
     filter: none;
@@ -222,8 +217,6 @@ section {
 }
 
 section:after {
-  font-size: 24px;
-  line-height: 1;
   position: absolute;
   right: 0;
   bottom: 0;
@@ -233,6 +226,8 @@ section:after {
   transition: 0s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transform: translate3d(0, 100%, 0);
   opacity: 0;
+  font-size: 24px;
+  line-height: 1;
 }
 
 html:not(.overview) section.active:not(.no-number):after {
@@ -449,12 +444,12 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: 'headings';
-  font-weight: 800;
-  line-height: 1.1;
   margin-bottom: 0;
   letter-spacing: -0.02em;
   color: #444;
+  font-family: 'headings';
+  font-weight: 800;
+  line-height: 1.1;
 }
 
 h1+*:not(details):not(.no-margin),
@@ -484,13 +479,13 @@ h6 small,
 .h4 small,
 .h5 small,
 .h6 small {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 40px;
-  font-weight: 400;
   display: block;
   margin: 10px 0 0;
   letter-spacing: 0;
   opacity: 0.5;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 40px;
+  font-weight: 400;
 }
 
 h1,
@@ -592,13 +587,13 @@ mark {
 }
 
 sup {
-  font-size: smaller;
   vertical-align: super;
+  font-size: smaller;
 }
 
 sub {
-  font-size: smaller;
   vertical-align: sub;
+  font-size: smaller;
 }
 
 a {
@@ -618,34 +613,34 @@ abbr[data-original-title] {
 }
 
 blockquote {
+  position: relative;
+  letter-spacing: -0.02em;
   font-family: 'headings';
   font-size: 90px;
   font-weight: 700;
   line-height: 1.1;
-  position: relative;
-  letter-spacing: -0.02em;
 }
 
 blockquote:before {
-  font-size: 190px;
   position: absolute;
   top: -8px;
   left: -100px;
   content: open-quote;
   content: '”';
   opacity: 0.4;
+  font-size: 190px;
 }
 
 blockquote cite {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 30px;
-  font-weight: 400;
-  font-style: italic;
   display: block;
   margin-top: 20px;
   text-align: right;
   letter-spacing: 0;
   opacity: 0.4;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  font-style: italic;
 }
 
 blockquote cite:before {
@@ -717,11 +712,11 @@ pre,
 code,
 kbd,
 samp {
-  font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
   color: #ccc;
   border: 0;
   border-radius: 10px;
   background: #2d2d2d;
+  font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
 }
 
 code,
@@ -732,8 +727,8 @@ samp {
 }
 
 pre code {
-  line-height: 1.5;
   display: block;
+  line-height: 1.5;
 }
 
 .hljs-comment,
@@ -859,14 +854,14 @@ html.overview {
 }
 
 .overview head>title {
-  font-family: 'headings';
-  font-size: 30px;
-  font-weight: 800;
-  line-height: 1.1;
   margin: 2em 0 1em;
   text-align: center;
   letter-spacing: -0.02em;
   color: white;
+  font-family: 'headings';
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.1;
 }
 
 .overview body {
@@ -904,12 +899,12 @@ html.overview {
 }
 
 .overview section:after {
-  font-size: 80px;
   top: 100%;
   bottom: auto;
   transform: none;
   opacity: 0.6;
   color: #fff;
+  font-size: 80px;
 }
 
 .overview section:before {
