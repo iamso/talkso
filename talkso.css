@@ -15,6 +15,7 @@
 
 :root {
   --accent-color: red;
+  --progress-color: var(--accent-color);
 }
 
 
@@ -147,7 +148,7 @@ footer {
   width: 0;
   height: 3px;
   transition: 0.4s ease-out;
-  background: var(--accent-color);
+  background: var(--progress-color);
 }
 
 
