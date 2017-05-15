@@ -892,6 +892,7 @@ html.overview {
   z-index: 10;
   visibility: visible;
   margin: -300px -480px;
+  cursor: pointer;
   transition: none;
   transform: scale(0.25);
   pointer-events: auto;

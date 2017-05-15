@@ -173,6 +173,13 @@ class Talkso {
       startTime = Date.now();
     }, false);
 
+    window.addEventListener('touchmove', e => {
+      if (!this.html.classList.contains('overview')) {
+        e.preventDefault();
+        return false;
+      }
+    }, {passive: false});
+
     window.addEventListener('touchend', e => {
       distX = e.changedTouches[0].pageX - startX;
       distY = e.changedTouches[0].pageY - startY;
