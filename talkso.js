@@ -195,6 +195,19 @@ class Talkso {
         }
       }
     }, false);
+    window.addEventListener('gestureend', e => {
+      const overview = this.html.classList.contains('overview');
+      if (e.scale < 1.0) {
+        if (!overview) {
+          this.toggleOverview();
+        }
+      }
+      else if (e.scale > 1.0) {
+        if (overview) {
+          this.toggleOverview();
+        }
+      }
+    }, false);
   }
   resize(e) {
     const factorX = this.width / window.innerWidth;
