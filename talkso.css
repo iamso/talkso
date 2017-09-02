@@ -955,6 +955,7 @@ html.overview {
   }
   body {
     overflow: visible;
+    transform: none !important;
   }
   section {
     position: static;
@@ -966,6 +967,11 @@ html.overview {
     page-break-before: always;
     page-break-after: always;
   }
+  section * {
+    page-break-inside: avoid;
+    page-break-before: avoid;
+    page-break-after: avoid;
+  }
   .step {
     visibility: visible !important;
     transform: none !important;
@@ -975,5 +981,12 @@ html.overview {
     transform: none !important;
     animation: none !important;
     opacity: 1 !important;
+  }
+  .progress-bar {
+    display: none;
+  }
+  @page {
+    margin: 0;
+    size: A4 landscape;
   }
 }
