@@ -2,7 +2,7 @@
 
 My HTML presentation template. Inspired a little bit by DZ slides and some others...
 
-## Usage
+## Usage
 
 Check `demo.html` for an example presentation.
 
