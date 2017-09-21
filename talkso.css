@@ -990,3 +990,26 @@ html.overview {
     size: A4 landscape;
   }
 }
+
+
+/**
+ * Disable transitions and animations
+ */
+
+.no-transitions,
+.no-transitions:before,
+.no-transitions:after,
+.no-transitions *,
+.no-transitions *:before,
+.no-transitions *:after {
+  animation: none !important;
+  transition: none !important;
+  filter: none !important;
+}
+
+.no-transitions .step,
+.no-transitions .shout {
+  visibility: visible !important;
+  transform: none !important;
+  opacity: 1 !important;
+}

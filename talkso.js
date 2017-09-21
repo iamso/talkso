@@ -39,6 +39,10 @@ class Talkso {
         }
       }
     }, false);
+
+    if (/notrans/.test(location.search)) {
+      document.documentElement.classList.add('no-transitions');
+    }
   }
   start() {
     this.goto(1, this.slides[0].querySelectorAll('.step.active').length);
