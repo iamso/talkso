@@ -844,6 +844,114 @@ pre code {
 
 
 /**
+ * Split Screen
+ */
+
+section.split {
+  display: flex;
+  flex-direction: row;
+  align-content: stretch;
+  align-items: stretch;
+  padding: 0;
+}
+
+section.split > div {
+  display: flex;
+  flex-direction: column;
+  padding: 100px 140px;
+  position: relative;
+}
+
+section.split > div.top-left {
+  text-align: left;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+section.split > div.top-center {
+  text-align: center;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+}
+
+section.split > div.top-right {
+  text-align: right;
+  justify-content: flex-start;
+  align-content: flex-end;
+  align-items: flex-end;
+}
+
+section.split > div.center-left {
+  text-align: left;
+  justify-content: center;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+section.split > div.center-center {
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+section.split > div.center-right {
+  text-align: right;
+  justify-content: center;
+  align-content: flex-end;
+  align-items: flex-end;
+}
+
+section.split > div.bottom-left {
+  text-align: left;
+  justify-content: flex-end;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+section.split > div.bottom-center {
+  text-align: center;
+  justify-content: flex-end;
+  align-content: center;
+  align-items: center;
+}
+
+section.split > div.bottom-right {
+  text-align: right;
+  justify-content: flex-end;
+  align-content: flex-end;
+  align-items: flex-end;
+}
+
+section.split-50-50 > div {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+section.split-60-40 > div:nth-child(odd) {
+  flex: 0 0 60%;
+  max-width: 60%;
+}
+
+section.split-60-40 > div:nth-child(even) {
+  flex: 0 0 40%;
+  max-width: 40%;
+}
+
+section.split-40-60 > div:nth-child(odd) {
+  flex: 0 0 40%;
+  max-width: 40%;
+}
+
+section.split-40-60 > div:nth-child(even) {
+  flex: 0 0 60%;
+  max-width: 60%;
+}
+
+
+/**
  * Overview
  */
 
