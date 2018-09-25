@@ -518,6 +518,10 @@ h6,
   font-size: 50px;
 }
 
+.huge {
+  font-size: 280px;
+}
+
 ul,
 ol {
   list-style: none;
