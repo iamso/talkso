@@ -188,6 +188,19 @@ class Talkso {
       this.toggleMedia(this.current, true, true);
     }
   }
+  help() {
+    const help =
+`[UP] / [LEFT] - previous slide
+[DOWN] / [RIGHT] - next slide
+[HOME] / [S] - go to start
+[END] / [E] - go to end
+[SPACE] - toggle media playback
+[F] - fullscreen
+[A] - toggle autoplay
+[L] - toggle loop`;
+    console.log(help);
+    alert(help);
+  }
   fullscreen() {
     const requestFullscreen = this.html.requestFullscreen || this.html.requestFullScreen || this.html.mozRequestFullScreen || this.html.webkitRequestFullScreen;
     if (requestFullscreen) {
@@ -296,6 +309,10 @@ class Talkso {
     if (key === 'l') {
       e.preventDefault();
       this.toggleLoop();
+    }
+    if (key === 'h') {
+      e.preventDefault();
+      this.help();
     }
   }
   hashchange(e) {
