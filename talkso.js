@@ -8,11 +8,12 @@ class Talkso {
     this.height = this.body.clientHeight;
     this.slides = [].slice.call(document.querySelectorAll('body > section'), 0);
     this.current = this.slides[0];
-    this.steps = this.current.querySelectorAll('.step');
+    this.steps = [].slice.call(this.current.querySelectorAll('.step'), 0);
     this.progress = document.querySelector('.progress-bar');
     this.index = 0;
     this.step = 0;
-    this.windows = []
+    this.windows = [];
+
     this.init();
   }
   init() {
@@ -45,10 +46,10 @@ class Talkso {
     }
   }
   start() {
-    this.goto(1, this.slides[0].querySelectorAll('.step.active').length);
+    this.goto(1, [].slice.call(this.slides[0].querySelectorAll('.step.active'), 0).length);
   }
   end() {
-    this.goto(this.slides.length, this.slides[this.slides.length - 1].querySelectorAll('.step').length);
+    this.goto(this.slides.length, [].slice.call(this.slides[this.slides.length - 1].querySelectorAll('.step'), 0).length);
   }
   prev() {
     if (this.index > 1) {
@@ -75,7 +76,7 @@ class Talkso {
       this.current.classList.remove('active');
       this.current = this.slides[this.index - 1];
       this.current.classList.add('active');
-      this.steps = this.current.querySelectorAll('.step');
+      this.steps = [].slice.call(this.current.querySelectorAll('.step'), 0);
       if (this.steps.length) {
         this.step = Math.min(Math.max(step, 0), this.steps.length);
         if (this.step) {
@@ -97,8 +98,6 @@ class Talkso {
         this.toggleMedia(old, false);
         this.toggleMedia(this.current, true, true);
       }
-
-      const notes = this.current.querySelector('details');
 
       this.setProgress();
       this.printNotes();
@@ -199,6 +198,7 @@ class Talkso {
         }
       }
     }, false);
+
     window.addEventListener('gestureend', e => {
       const overview = this.html.classList.contains('overview');
       if (e.scale < 1.0) {
@@ -258,7 +258,7 @@ class Talkso {
     let [id, step] = hash.split('.');
     id = ~~id || 1;
     step = ~~step;
-    if (step > this.slides[id - 1].querySelectorAll('.step').length) {
+    if (step > [].slice.call(this.slides[id - 1].querySelectorAll('.step'), 0).length) {
       step = 0;
       id++;
     }
