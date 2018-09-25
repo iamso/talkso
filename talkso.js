@@ -9,6 +9,7 @@ class Talkso {
     this.slides = [].slice.call(document.querySelectorAll('body > section'), 0);
     this.current = this.slides[0];
     this.steps = [].slice.call(this.current.querySelectorAll('.step'), 0);
+    this.allSteps = [].slice.call(document.querySelectorAll('.step'), 0);
     this.progress = document.querySelector('.progress-bar');
     this.index = 0;
     this.step = 0;
@@ -81,6 +82,9 @@ class Talkso {
       }
       else {
         this.index = Math.min(Math.max(index, 1), this.slides.length);
+        if (this.index === this.slides.length) {
+          this.stopAutoplay();
+        }
       }
 
       this.current.classList.remove('active');
@@ -120,6 +124,26 @@ class Talkso {
 
     if (this.progress) {
       this.progress.style.width = `${(this.index - 1) * slideSize + this.step * stepSize}%`;
+    }
+  }
+  startAutoplay(speed = 5000) {
+    this.stopAutoplay();
+    this.interval = setInterval(this.next.bind(this), +speed);
+    this.autoplaying = true;
+  }
+  stopAutoplay() {
+    clearInterval(this.interval);
+    this.autoplaying = false;
+  }
+  toggleAutoplay(speed) {
+    if (this.autoplaying) {
+      this.stopAutoplay();
+    }
+    else {
+      if (!speed) {
+        speed = prompt(`autoplay speed in ms\n(hint: total duration / ${this.slides.length + this.allSteps.length})`, 5000);
+      }
+      speed && this.startAutoplay(speed);
     }
   }
   toggleLoop() {
@@ -264,6 +288,10 @@ class Talkso {
     if (key === 'o') {
       e.preventDefault();
       this.toggleOverview();
+    }
+    if (key === 'a') {
+      e.preventDefault();
+      this.toggleAutoplay();
     }
     if (key === 'l') {
       e.preventDefault();
