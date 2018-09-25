@@ -219,36 +219,36 @@ class Talkso {
     this.body.style.transform = `scale(${1 / Math.max(factorX, factorY)})`;
   }
   keydown(e) {
-    const key = e.keyCode;
+    const key = e.key;
 
     if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) {
       return;
     }
-    if (key === 37 || key === 38 || key === 33) { // left, up, page up
+    if (['ArrowUp', 'ArrowLeft', 'PageUp'].includes(key)) {
       e.preventDefault();
       this.prev();
     }
-    if (key === 39 || key === 40 || key === 34) { // right, down, page down
+    if (['ArrowDown', 'ArrowRight', 'PageDown'].includes(key)) {
       e.preventDefault();
       this.next();
     }
-    if (key === 35) { // end
-      e.preventDefault();
-      this.end();
-    }
-    if (key === 36) { // home
+    if (['Home', 's'].includes(key)) {
       e.preventDefault();
       this.start();
     }
-    if (key === 32) { // space
+    if (['End', 'e'].includes(key)) {
+      e.preventDefault();
+      this.end();
+    }
+    if (key === ' ') {
       e.preventDefault();
       this.toggleMedia();
     }
-    if (key === 70) { // f
+    if (key === 'f') {
       e.preventDefault();
       this.fullscreen();
     }
-    if (key === 79) { // o
+    if (key === 'o') {
       e.preventDefault();
       this.toggleOverview();
     }
