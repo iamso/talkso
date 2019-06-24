@@ -21,7 +21,7 @@ You'll find more information in the demo.
 
 ## License
 
-Copyright (c) 2017 Steve Ottoz
+Copyright (c) 2019 Steve Ottoz
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
