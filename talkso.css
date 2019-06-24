@@ -1070,7 +1070,7 @@ html.overview {
     transform: none !important;
   }
   section {
-    position: static;
+    position: relative;
     z-index: 10;
     visibility: visible;
     transition: none;
@@ -1083,6 +1083,16 @@ html.overview {
     page-break-inside: avoid;
     page-break-before: avoid;
     page-break-after: avoid;
+  }
+  section:not(.no-number):after {
+    transform: none !important;
+    transition: none !important;
+    opacity: 0.6 !important;
+  }
+  a[href]:after {
+    content: "(" attr(href) ")";
+    font-size: 50%;
+    margin-left: 10px;
   }
   .step {
     visibility: visible !important;
