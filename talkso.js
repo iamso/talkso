@@ -196,6 +196,7 @@ class Talkso {
 [END] / [E] - go to end
 [SPACE] - toggle media playback
 [F] - fullscreen
+[O] - toggle overview
 [A] - toggle autoplay
 [L] - toggle loop`;
     console.log(help);
