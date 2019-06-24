@@ -362,6 +362,46 @@ section.bottom-right {
   animation-fill-mode: forwards;
 }
 
+.loaded section.active .shout:nth-child(1) {
+  animation-delay: 0.4s;
+}
+
+.loaded section.active .shout:nth-child(2) {
+  animation-delay: 1.2s;
+}
+
+.loaded section.active .shout:nth-child(3) {
+  animation-delay: 2s;
+}
+
+.loaded section.active .shout:nth-child(4) {
+  animation-delay: 2.8s;
+}
+
+.loaded section.active .shout:nth-child(5) {
+  animation-delay: 3.6s;
+}
+
+.loaded section.active .shout:nth-child(6) {
+  animation-delay: 4.4s;
+}
+
+.loaded section.active .shout:nth-child(7) {
+  animation-delay: 5.2s;
+}
+
+.loaded section.active .shout:nth-child(8) {
+  animation-delay: 6s;
+}
+
+.loaded section.active .shout:nth-child(9) {
+  animation-delay: 6.8s;
+}
+
+.loaded section.active .shout:nth-child(10) {
+  animation-delay: 7.6s;
+}
+
 .loaded section.active .shout.fade-in {
   animation-name: shout-fade-in;
   opacity: 0;
